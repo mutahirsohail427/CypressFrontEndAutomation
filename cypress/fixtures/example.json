@@ -1,0 +1,5 @@
+{
+  "checkout": "PROCEED TO CHECKOUT",
+  "confirmation": "Thank you, your order has been placed successfully  You'll be redirected to Home page shortly!!",
+  "products": ["Cashews","Cauliflower", "Cucumber", "Carrot"]
+}
