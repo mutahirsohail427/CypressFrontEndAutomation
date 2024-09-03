@@ -4,12 +4,14 @@ import HomePage from "./pageObjects/Homepage"
 describe('Checkout Functionality', function() 
 {
     before(function() {
+        // Reading data from fixtures
         cy.fixture('example').then(function(data){
             this.data = data
         })
     })
  
     it('Product Checkout',function() {
+        // Page Object Model from HomePage class
         const homeLoc = new HomePage()
         console.log(this.data.name)
         cy.log(this.data.name)
@@ -18,11 +20,13 @@ describe('Checkout Functionality', function()
         cy.wait(2000)
         homeLoc.getProductList().as('productLocator')
         this.data.products.forEach(element => {
+            // Using a function from command.js
             cy.productSelection(element)
         });
         homeLoc.getCart().click()
         cy.contains(this.data.checkout).click()
         var sum = 0
+        // Getting Prices of all the items and Asserting they are equal to total Sum
         cy.get('tr td:nth-child(4)').each(($el, index, $list) => {
             if (index > 0){
                 var amount = Number($el.text())
